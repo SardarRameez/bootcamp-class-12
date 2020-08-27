@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: teal;
+        }
+    </style>
+    <script>
+        window.addEventListener("load",function(){
+            var box=document.querySelector(".box");
+            var frame=[
+                {background:"red",transform:"translateX(20px)"},
+                {background:"green",transform:"translateX(200px)"},
+                {background:"blue",transform:"translateX(400px)"}
+            ];
+            var dur={duration:3000, direction:"alternate",iterations:Infinity};
+            var boxAnimate=box.animate(frame,dur);
+            document.querySelector(".stop").addEventListener('click',function(){boxAnimate.pause()})
+            document.querySelector(".start").addEventListener('click',function(){boxAnimate.play()})
+            document.querySelector(".reverse").addEventListener('click',function(){boxAnimate.reverse()})
+            document.querySelector(".PayBackRate").addEventListener('click',function(){boxAnimate.updatePlaybackRate(boxAnimate.playbackRate*1.5)})
+        })
+    </script>
+</head>
+<body>
+    <button class="start">Start</button>
+    <button class="stop">Stop</button>
+    <button class="reverse">Reverse</button>
+    <button class="PayBackRate">PayBackRate</button>
+    <div class="box">
+    </div>
+</body>
+</html>
